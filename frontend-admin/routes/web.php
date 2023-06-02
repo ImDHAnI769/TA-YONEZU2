@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Karyawan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+//buat route untuk tampil data karyawan
+Route::get("/",[Karyawan::class,'index']);
+
+//buat route untuk hapus data karyawan
+Route::delete("/delete/{parameter}",[Karyawan::class,'delete']);
+
+//buat route untuk tambah data karyawan
+Route::get("/add",[Karyawan::class,'add']);
